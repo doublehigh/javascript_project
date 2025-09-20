@@ -21,7 +21,7 @@ const companyContainer = document.getElementById("company-container");
 const blogContainer = document.getElementById("blog-container");
 const twitterContainer = document.getElementById("twitter-container");
 const reposContainer = document.getElementById("repos-container");
-const BASE_URL = "http://127.0.0.1:5500/";
+const BASE_URL = "https://javascript-project-ten-mu.vercel.app/";
 
 // searchBtn.addEventListener("click", searchUser);
 // searchInput.addEventListener("keypress", (e) => {
