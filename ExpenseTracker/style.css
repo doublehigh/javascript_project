@@ -328,6 +328,10 @@ button[type="submit"]:active {
     font-size: 1.5rem;
   }
 
+  #balance {
+    font-size: 2rem;
+  }
+  
   .transaction {
     padding: 14px 16px;
   }
