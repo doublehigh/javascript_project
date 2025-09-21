@@ -250,7 +250,7 @@ footer {
 @media (max-width: 600px)
 {
   .todo-input {
-  padding: 20px 5px;
+  padding: 20px 10px;
   display: flex;
   gap: 10px;
   background-color: var(--light);
