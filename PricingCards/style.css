@@ -308,13 +308,14 @@ h3 {
 
   .pricing-cards {
     grid-template-columns: 1fr;
-    min-width: 380px;
+    min-width: 400px;
     margin: 0 auto 40px;
   }
 
   .card,
   .popular {
     transform: none;
+    max-width: 95%;
   }
   .card:hover,
   .popular:hover {
