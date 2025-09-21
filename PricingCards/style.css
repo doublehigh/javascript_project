@@ -308,7 +308,7 @@ h3 {
 
   .pricing-cards {
     grid-template-columns: 1fr;
-    min-width: 400px;
+    min-width: 380px;
     margin: 0 auto 40px;
   }
 
