@@ -300,6 +300,7 @@ h3 {
 
   header {
     margin-bottom: 30px;
+    max-width: 95%;
   }
 
   header h1 {
@@ -324,6 +325,7 @@ h3 {
 
   .testimonial {
     margin-top: 40px;
+    max-width: 95%;
   }
 
   .quote {
