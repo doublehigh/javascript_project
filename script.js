@@ -21,6 +21,7 @@ const companyContainer = document.getElementById("company-container");
 const blogContainer = document.getElementById("blog-container");
 const twitterContainer = document.getElementById("twitter-container");
 const reposContainer = document.getElementById("repos-container");
+const routeLink = document.getElementById("routelink");
 const BASE_URL = "https://javascript-project-ten-mu.vercel.app/";
 
 // searchBtn.addEventListener("click", searchUser);
@@ -190,6 +191,7 @@ function project() {
       a.href = BASE_URL + file.endpoint;  // Concatenate base + endpoint
       a.textContent = file.name;
       a.target = "_blank"; // open in new tab
+      routeLink.href = BASE_URL + file.endpoint;
 
       div.classList.add("projects");
       div.appendChild(a);
