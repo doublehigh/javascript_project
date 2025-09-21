@@ -246,3 +246,14 @@ footer {
 #clear-completed:hover {
   color: var(--danger);
 }
+
+@media (max-width: 600px)
+{
+  .todo-input {
+  padding: 20px 0px;
+  display: flex;
+  gap: 10px;
+  background-color: var(--light);
+  border-bottom: 1px solid var(--border);
+}
+}
