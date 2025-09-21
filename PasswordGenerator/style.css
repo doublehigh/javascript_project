@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,15 +8,14 @@
 }
 
 :root {
-  --primary-color: #2b5876;
-  --secondary-color: #4e4376;
-  --weak-color: #fc8181;
-  --medium-color: #fbd38d;
-  --strong-color: #68d391;
+    --primary-color: #2b5876;
+    --secondary-color: #4e4376;
+    --weak-color: #fc8181;
+    --medium-color: #fbd38d;
+    --strong-color: #68d391;
 }
 
-body
-{
+body {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     display: flex;
     justify-content: center;
@@ -26,8 +25,7 @@ body
     padding: 20px;
 }
 
-.container
-{
+.container {
     background-color: #fff;
     padding: 2.5rem;
     border-radius: 1rem;
@@ -36,7 +34,7 @@ body
     max-width: 450px;
 }
 
-h1{
+h1 {
     font-size: 1.8rem;
     margin-bottom: 1.8rem;
     text-align: center;
@@ -46,8 +44,7 @@ h1{
     padding-bottom: 0.5rem;
 }
 
-h1::after
-{
+h1::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -59,7 +56,7 @@ h1::after
     background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
-.password-container{
+.password-container {
     margin-bottom: 2rem;
     background-color: #f8fafc;
     border-radius: 10px;
@@ -72,8 +69,7 @@ h1::after
     padding: 0 1rem 0 0;
 }
 
-#password
-{
+#password {
     width: 100%;
     padding: 1rem;
     border-right: 50px;
@@ -87,8 +83,7 @@ h1::after
     font-weight: 450;
 }
 
-#copy-btn
-{
+#copy-btn {
     cursor: pointer;
     color: #718096;
     font-size: 1.3rem;
@@ -100,13 +95,11 @@ h1::after
     border-radius: 50%;
 }
 
-#copy-btn
-{
+#copy-btn {
     color: var(--primary-color);
 }
 
-.options
-{
+.options {
     margin-bottom: 2rem;
     background-color: #f8fafc;
     padding: 1.5rem;
@@ -114,20 +107,18 @@ h1::after
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-.option
-{
+.option {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
 }
 
-.option:last-child
-{
+.option:last-child {
     margin-bottom: 0;
 }
 
-.option label{
+.option label {
     font-size: 1rem;
     color: #4a5568;
     font-weight: 600;
@@ -140,16 +131,14 @@ h1::after
     width: 60%;
 }
 
-input[type = "range"]
-{
+input[type="range"] {
     accent-color: var(--primary-color);
     height: 5px;
     cursor: pointer;
     flex: 1;
 }
 
-input[type = "checkbox"]
-{
+input[type="checkbox"] {
     width: 20px;
     height: 20px;
     border: 2px solid var(--primary-color);
@@ -161,13 +150,11 @@ input[type = "checkbox"]
     transition: all .7s;
 }
 
-input[type = "checkbox"]:checked
-{
+input[type="checkbox"]:checked {
     background-color: var(--primary-color);
 }
 
-input[type = "checkbox"]:checked::after
-{
+input[type="checkbox"]:checked::after {
     content: "\2714";
     position: absolute;
     color: white;
@@ -178,16 +165,16 @@ input[type = "checkbox"]:checked::after
 }
 
 #length-value {
-  font-weight: 600;
-  color: var(--primary-color);
-  width: 30px;
-  text-align: center;
-  background: #e2e8f0;
-  border-radius: 4px;
-  padding: 2px 5px;
+    font-weight: 600;
+    color: var(--primary-color);
+    width: 30px;
+    text-align: center;
+    background: #e2e8f0;
+    border-radius: 4px;
+    padding: 2px 5px;
 }
 
-button{
+button {
     width: 100%;
     padding: 1rem;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
@@ -202,11 +189,11 @@ button{
     box-shadow: 0 4px 8px rgba(43, 88, 118, 0.2);
 }
 
-button:hover{
+button:hover {
     transform: translateY(-2px);
 }
 
-button:active{
+button:active {
     transform: translateY(0);
 }
 
@@ -237,8 +224,7 @@ button:active{
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.strength-bar
-{
+.strength-bar {
     height: 100%;
     width: 0;
     min-width: 5%;
@@ -248,16 +234,21 @@ button:active{
 }
 
 @media (max-width: 768px) {
-    .container
-    {
+    .container {
         width: 100%;
         padding: 1rem;
     }
-    h1 
-    {
+
+    h1 {
         font-size: 1.6rem;
     }
+
     .option label {
         font-size: 0.8rem;
+    }
+
+    #password {
+        font-size: 0.7rem;
+        font-weight: 450;
     }
 }
