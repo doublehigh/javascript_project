@@ -188,17 +188,18 @@ function project() {
       const a = document.createElement("a");
       const i = document.createElement("i");
 
-      i.classList = "fa-solid fa-arrow-up-right-from-square";
+      // i.classList = "fa-solid fa-arrow-up-right-from-square";
+      i.classList = "fa-solid fa-link";
 
       a.href = BASE_URL + file.endpoint;  // Concatenate base + endpoint
-      a.textContent = file.name;
+      a.textContent = file.name + "    ";
       a.target = "_blank"; // open in new tab
 
       a.classList.add("projects");
       // div.appendChild(a);
+      a. appendChild(i);
       projectList.appendChild(a);
 
-      projectList.appendChild(i);
     });
 }
 
