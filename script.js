@@ -181,6 +181,7 @@ function project() {
     {name: "Color Palette Generator", endpoint: "ColorPaletteGenerator/index.html"},
     {name: "Contact Form", endpoint: "ContactForm/index.html"},
     {name: "Coffee Page", endpoint: "CoffeePage/index.html"},
+    {name: "Math Quize", endpoint: "MathGame/index.html"},
   ];
 
   files.forEach(file => {
