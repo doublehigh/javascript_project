@@ -186,6 +186,9 @@ function project() {
   files.forEach(file => {
       // const div = document.createElement("div");
       const a = document.createElement("a");
+      const i = document.createElement("i");
+
+      i.classList = "fa-solid fa-arrow-up-right-from-square";
 
       a.href = BASE_URL + file.endpoint;  // Concatenate base + endpoint
       a.textContent = file.name;
@@ -194,6 +197,8 @@ function project() {
       a.classList.add("projects");
       // div.appendChild(a);
       projectList.appendChild(a);
+
+      projectList.appendChild(i);
     });
 }
 
