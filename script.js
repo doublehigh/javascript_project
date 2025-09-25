@@ -190,7 +190,7 @@ function project() {
       const i = document.createElement("i");
 
       // i.classList = "fa-solid fa-arrow-up-right-from-square";
-      i.classList = "fa-regular fa-square-arrow-up-right";
+      i.classList = "fa-solid fa-arrow-up-right-from-square";
 
       a.href = BASE_URL + file.endpoint;  // Concatenate base + endpoint
       a.textContent = file.name + "    ";
