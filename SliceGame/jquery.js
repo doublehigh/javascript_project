@@ -130,7 +130,7 @@ $(function () {
   // Set fruit speed (slower on mobile)
   function setStep() {
     if (window.innerWidth < 500) {
-      step = 1 + Math.round(3 * Math.random());
+      step = 1 + Math.round(4 * Math.random());
     } else {
       step = 1 + Math.round(5 * Math.random());
     }
