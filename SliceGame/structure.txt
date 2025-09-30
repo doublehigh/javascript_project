@@ -1,0 +1,28 @@
+Folder PATH listing
+Volume serial number is 440C-D091
+C:.
+ª   index.html
+ª   jquery.js
+ª   jquery.js.bak
+ª   README.md
+ª   structure.txt
+ª   styling.css
+ª   
++---audio
+ª       fruitslice.mp3
+ª       fruitslice.ogg
+ª       fruitslice.wav
+ª       
++---images
+        apple.png
+        banana.png
+        cherris.png
+        fruitslice.png
+        grape.png
+        mango.png
+        orange.png
+        peach.png
+        pear.png
+        pineapple.png
+        watermelon.png
+        

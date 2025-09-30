@@ -182,7 +182,7 @@ function project() {
     {name: "Contact Form", endpoint: "ContactForm/index.html"},
     {name: "Coffee Page", endpoint: "CoffeePage/index.html"},
     {name: "Math Quize", endpoint: "MathGame/index.html"},
-    {name: "Fruit Slice Game", endpoint: "FruitSliceGame/index.html"},
+    {name: "Fruit Slice Game", endpoint: "SliceGame/index.html"},
   ];
 
   files.forEach(file => {
