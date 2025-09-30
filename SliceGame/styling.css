@@ -1,27 +1,26 @@
 /*styling.css*/
 html {
     height: 100%;
-    background: radial-gradient(circle, #fff, #ccc);
-    background: -webkit-radial-gradient(circle, #fff, #ccc);
-    background: -o-radial-gradient(circle, #fff, #ccc);
-    background: -moz-radial-gradient(circle, #fff, #ccc);
+    background: #f5efe6;
+    font-family: sans-serif;
+    font-weight: 600;
 }
 
 /* responsive container */
 #container {
     width: min(750px, 94%);
-    background-color: #9DD2EA;
+    background-color: #f8f0e5;
     margin: 10px auto;
     padding: 16px;
     border-radius: 10px;
-    box-shadow: 0 6px 16px rgba(0, 157, 228, 0.08);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     position: relative;
 }
 
 /* top-right score badge (center text vertically & horizontally) */
 #score {
-    background-color: #F1FF92;
-    color: #888E5F;
+    background-color: #e86a33;
+    color: #fff;
     padding: 8px 12px;
     position: absolute;
     top: 12px;
@@ -55,7 +54,8 @@ html {
 #instruction {
     width: min(450px, 92%);
     height: 48px;
-    background-color: #B481D9;
+    background-color: #cb7d5ccd;
+    color: #666;
     margin: 10px auto;
     text-align: center;
     line-height: 48px;
@@ -68,7 +68,8 @@ html {
     width: max-content;
     min-width: 78px;
     padding: 8px 12px;
-    background-color: rgba(255,255,255,0.5);
+    background-color: #e86a33;
+    color: white;
     margin: 12px auto; /* centers horizontally */
     border-radius: 6px;
     cursor: pointer;
@@ -86,7 +87,7 @@ html {
     position: absolute;
     top: 12px;
     left: 12px;
-    background-color: #F1FF92;
+    background-color: #ffffffc8;
     border-radius: 3px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
     display: none; /* JS will show it and set display:flex when needed */
@@ -103,7 +104,7 @@ html {
 #gameOver{
     width: min(500px, 90%);
     padding: 18px 22px;
-    background: linear-gradient(#F3CA6B, #F3706C);
+    background: linear-gradient(#e8693371, #e86a33);
     color: white;
     font-size: 1.4em;
     text-align: center;
@@ -114,7 +115,7 @@ html {
     transform: translate(-50%, -50%);
     z-index: 60; /* ensure modal is above other UI */
     display: none;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.28);
+    box-shadow: 0 10px 36px rgba(0,0,0,0.18);
     border-radius: 10px;
     overflow: auto;
 }

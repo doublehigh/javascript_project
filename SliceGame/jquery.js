@@ -88,8 +88,11 @@ function startAction(){
     $("#fruit1").css({'left' : leftPos, 'top' : -50}); //random position
     
     //generate a random step
-    step = 1+ Math.round(5*Math.random()); // change step
-    
+     if (window.innerWidth < 500) {
+        step = 1+ Math.round(2*Math.random()); // change step
+    } else {
+        step = 1+ Math.round(5*Math.random()); // change step
+    }
     // Move fruit down by one step every 10ms
     action = setInterval(function(){
         
