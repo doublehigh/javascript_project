@@ -1,148 +1,144 @@
-//jquery.js
+// jquery.js
 let playing = false;
 let score;
 let trialsLeft;
 let step;
 let action; //used for setInterval
-let fruits = ['apple', 'banana', 'cherris', 'grape', 'mango', 'orange', 'pear', 'pineapple', 'peach', 'watermelon'];
-$(function(){
-    // ensure the fruit is hidden on initial load
-    $("#fruit1").hide();
-    
-//click on start reset button
-    
-$("#startreset").click(function(){
+let fruits = [
+  "apple",
+  "banana",
+  "cherries",
+  "grape",
+  "mango",
+  "orange",
+  "pear",
+  "pineapple",
+  "peach",
+  "watermelon",
+];
 
-    //we are playing
-    if(playing == true){
+$(function () {
+  // Ensure the fruit is hidden on initial load
+  $("#fruit1").hide();
 
-        //reload page
-        location.reload();
-    }else{
-
-        //we are not playing
-        playing = true; //game initiated
-
-        //set score to 0
-        score = 0; //set score to 0
-        $("#scorevalue").html(score);
-
-        //show trials left 
-        $("#trialsLeft").show();
-        $("#trialsLeft").css("display", "flex", "justify-content", "space-evenly", "align-items", "center");
-        trialsLeft = 3;
-        addHearts();
-
-        //hide game over box
-        $("#gameOver").hide();
-
-        //change button text to reset game
-        $("#startreset").html("Reset Game");
-
-        //start sending fruits
-        startAction();
-    }
-});
-
-    
-//slice a fruit
-    
-$("#fruit1").mouseover(function(){
-    score++;
-    $("#scorevalue").html(score); //update score
-//    document.getElementById("slicesound").play();
-    $("#slicesound")[0].play();//play sound
-    
-    //stop fruit
-    clearInterval(action);
-    
-    //hide fruit
-    $("#fruit1").hide("explode", 500); //slice fruit
-    
-    //send new fruit
-    setTimeout(startAction, 800);
-});
- 
-//functions
-
-//fill trialLeft box with hearts
-    
-function addHearts(){
-    $("#trialsLeft").empty();
-    for(i = 0; i < trialsLeft; i++){
-        $("#trialsLeft").append('<div class="heart"></div>');
-    }
-}
-
-//start sending fruits
-
-function startAction(){
-    
-    //generate a fruit
-    $("#fruit1").show();
-    chooseFruit(); //choose a random fruit
-    // place fruit randomly inside the visible fruitsContainer width
-    var containerWidth = $("#fruitsContainer").width();
-    var fruitWidth = $("#fruit1").width() || 64; // fallback if image not loaded yet
-    var leftPos = Math.round((containerWidth - fruitWidth) * Math.random());
-    $("#fruit1").css({'left' : leftPos, 'top' : -50}); //random position
-    
-    //generate a random step
-     if (window.innerWidth < 500) {
-        step = 1+ Math.round(2*Math.random()); // change step
+  // Start/Reset button
+  $("#startreset").click(function () {
+    if (playing) {
+      // reload page if already playing
+      location.reload();
     } else {
-        step = 1+ Math.round(5*Math.random()); // change step
+      playing = true;
+      score = 0;
+      $("#scorevalue").html(score);
+
+      // Show lives
+      $("#trialsLeft").show().css({
+        display: "flex",
+        "justify-content": "space-evenly",
+        "align-items": "center",
+      });
+      trialsLeft = 3;
+      addHearts();
+
+      // Hide game over
+      $("#gameOver").hide();
+
+      // Change button text
+      $("#startreset").html("Reset Game");
+
+      // Start sending fruits
+      startAction();
     }
-    // Move fruit down by one step every 10ms
-    action = setInterval(function(){
-        
-        //move fruit by one step
-        $("#fruit1").css('top', $("#fruit1").position().top + step);                              
-    
-        //check if the fruit is too low
-        if($("#fruit1").position().top > $("#fruitsContainer").height()){
-            //check if we have trials left
-            if(trialsLeft > 1 ){
-                //generate a fruit
-                $("#fruit1").show();
-                chooseFruit(); //choose a random fruit
-                // place next fruit within container bounds
-                var containerWidth = $("#fruitsContainer").width();
-                var fruitWidth = $("#fruit1").width() || 64;
-                var leftPos = Math.round((containerWidth - fruitWidth) * Math.random());
-                $("#fruit1").css({'left' : leftPos, 'top' : -50}); //random position
+  });
 
-                //generate a random step
-                step = 1+ Math.round(5*Math.random()); // change step
-                
-                //reduce trials by one
-                trialsLeft --;
-                
-                //populate trialsLeft box
-                addHearts();
-                
-            }else{ // game over
-                playing = false; //we are not playing anymore
-                $("#startreset").html("Start Game"); // change button to Start Game
-                $("#gameOver").show();
-                $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
-                $("#trialsLeft").hide();
-                stopAction();
-            }
+  // Slice a fruit
+  $("#fruit1").on("mouseover touchstart", function () {
+    score++;
+    $("#scorevalue").html(score);
+
+    // Play sound
+    $("#slicesound")[0].play();
+
+    // Stop fruit & hide with animation
+    clearInterval(action);
+    $("#fruit1").hide("explode", 500);
+
+    // New fruit after short delay
+    setTimeout(startAction, 800);
+  });
+
+  // ================== FUNCTIONS ===================
+
+  // Add hearts for lives
+  function addHearts() {
+    $("#trialsLeft").empty();
+    for (let i = 0; i < trialsLeft; i++) {
+      $("#trialsLeft").append('<div class="heart"></div>');
+    }
+  }
+
+  // Start fruit dropping
+  function startAction() {
+    resetFruit(); // <- pick ONE fruit and drop it
+
+    action = setInterval(function () {
+      $("#fruit1").css("top", $("#fruit1").position().top + step);
+
+      // Check if fruit is too low
+      if ($("#fruit1").position().top > $("#fruitsContainer").height()) {
+        if (trialsLeft > 1) {
+          trialsLeft--;
+          addHearts();
+          resetFruit(); // new fruit only when old one is gone
+        } else {
+          // Game over
+          playing = false;
+          $("#startreset").html("Start Game");
+          $("#gameOver")
+            .show()
+            .html(`<p>Game Over!</p><p>Your score is ${score}</p>`);
+          $("#trialsLeft").hide();
+          stopAction();
         }
+      }
     }, 10);
-}
+  }
 
-// generate a random fruit
+  // Reset fruit for a new drop
+  function resetFruit() {
+    let fruitName = chooseFruit(); // pick once
+    $("#fruit1")
+      .attr("src", "images/" + fruitName + ".png")
+      .show();
 
-function chooseFruit(){
-    $("#fruit1").attr('src' , 'images/' + fruits[Math.round(9*Math.random())] +'.png');   
-}
+    // Random left position inside container
+    let containerWidth = $("#fruitsContainer").width();
+    let fruitWidth = $("#fruit1").width() || 64;
+    let leftPos = Math.round((containerWidth - fruitWidth) * Math.random());
+    $("#fruit1").css({ left: leftPos, top: -50 });
 
-//Stop dropping fruits
+    // Set fruit speed
+    setStep();
+  }
 
-function stopAction(){
+  // Choose a random fruit and return its name
+  function chooseFruit() {
+    let index = Math.floor(Math.random() * fruits.length);
+    return fruits[index];
+  }
+
+  // Set fruit speed (slower on mobile)
+  function setStep() {
+    if (window.innerWidth < 500) {
+      step = 1 + Math.round(2 * Math.random());
+    } else {
+      step = 1 + Math.round(5 * Math.random());
+    }
+  }
+
+  // Stop dropping fruits
+  function stopAction() {
     clearInterval(action);
     $("#fruit1").hide();
-}
+  }
 });
