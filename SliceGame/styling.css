@@ -31,7 +31,12 @@ html {
     justify-content: center;
     min-width: 56px;
     border-radius: 6px;
-    z-index: 100; /* ensure score sits above the play area */
+    z-index: 100;
+    /* ensure score sits above the play area */
+}
+
+#scorevalue {
+    padding-left: 15px;
 }
 
 /* game play area: responsive width, keep aspect ratio so height scales with width */
@@ -47,7 +52,8 @@ html {
     color: black;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 13 / 8; /* keeps approximate 650x400 ratio so existing JS height logic still makes sense */
+    aspect-ratio: 13 / 8;
+    /* keeps approximate 650x400 ratio so existing JS height logic still makes sense */
 }
 
 /* instruction banner */
@@ -62,15 +68,21 @@ html {
     box-shadow: 0 4px 12px rgba(129, 83, 168, 0.06);
 }
 
+.controlbtn{
+    display: flex;
+    justify-content: space-between;
+}
 /* start/reset button (centered for all screen sizes) */
-#startreset{
-    display: block; /* full-width shrink-to-fit centered via margin */
+#startreset, #pausePlay {
+    display: block;
+    /* full-width shrink-to-fit centered via margin */
     width: max-content;
     min-width: 78px;
     padding: 8px 12px;
     background-color: #e86a33;
     color: white;
-    margin: 12px auto; /* centers horizontally */
+    margin: 12px auto;
+    /* centers horizontally */
     border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
@@ -79,18 +91,24 @@ html {
     transition: all 0.2s;
 }
 
+#pausePlay{
+    display: none;
+}
+
 /* trials area (kept hidden by default; shown by JS as flex) */
 /* trials area (kept hidden by default; shown by JS as flex) */
-#trialsLeft{
+#trialsLeft {
     width: auto;
     padding: 8px;
+    padding-top: 14px;
     position: absolute;
     top: 12px;
     left: 12px;
     background-color: #ffffffc8;
     border-radius: 3px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-    display: none; /* JS will show it and set display:flex when needed */
+    display: none;
+    /* JS will show it and set display:flex when needed */
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -101,7 +119,7 @@ html {
 /* game over modal: center above the play area */
 /* game over modal: center above the play area, responsive and scroll-safe */
 /* game over modal: center above the play area, slightly higher to avoid covering controls */
-#gameOver{
+#gameOver {
     width: min(500px, 90%);
     padding: 18px 22px;
     background: linear-gradient(#e8693371, #e86a33);
@@ -111,17 +129,22 @@ html {
     text-transform: uppercase;
     position: absolute;
     left: 50%;
-    top: 35%; /* moved a bit higher */
+    top: 35%;
+    /* moved a bit higher */
     transform: translate(-50%, -50%);
-    z-index: 60; /* ensure modal is above other UI */
+    z-index: 60;
+    /* ensure modal is above other UI */
     display: none;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.18);
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
     border-radius: 10px;
     overflow: auto;
 }
 
 /* when gameOver is visible we reduce opacity of background elements to avoid perceived overlap */
-.game-over-active #container > *:not(#gameOver) { opacity: 0.4; pointer-events: none }
+.game-over-active #container>*:not(#gameOver) {
+    opacity: 0.4;
+    pointer-events: none
+}
 
 /* HTML: <div class="heart"></div> */
 .heart {
@@ -131,7 +154,8 @@ html {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    margin: 0 8px 0 0; /* add a small right gap between hearts */
+    margin: 0 8px 0 0;
+    /* add a small right gap between hearts */
     transform: rotate(-45deg);
     background: #cc333f;
 }
@@ -156,16 +180,19 @@ html {
     top: 0;
 }
 
-.fruit{
+.fruit {
     position: absolute;
-    display: block; /* visible by default when appended */
+    display: block;
+    /* visible by default when appended */
     width: 70px;
     height: 70px;
     z-index: 5;
 }
 
 /* helper: hidden fruit template */
-.fruit.template{ display: none }
+.fruit.template {
+    display: none
+}
 
 .life {
     width: 16px;
@@ -175,33 +202,105 @@ html {
 
 /* responsive breakpoints */
 @media (max-width: 420px) {
+
     /* small phones (portrait) */
-    #container{ padding: 12px;}
-    #fruitsContainer { height: 350px; }
-    #gameOver{ width: 80%; font-size: 1.1em; padding: 12px; margin-top: -35px;}
-    #instruction{ height: 42px; line-height: 42px; }
-    #startreset{ padding: 6px 10px; }
-    .fruit{ width: 56px; height: 56px; }
-    #score{ top: 8px; right: 8px; padding: 6px 8px; }
-    #trialsLeft{ top: 8px; left: 8px; padding: 12px 6px; }
+    #container {
+        padding: 12px;
+    }
+
+    #fruitsContainer {
+        height: 350px;
+    }
+
+    #gameOver {
+        width: 80%;
+        font-size: 1.1em;
+        padding: 12px;
+        margin-top: -35px;
+    }
+
+    #instruction {
+        height: 42px;
+        line-height: 42px;
+    }
+
+    #startreset {
+        padding: 6px 10px;
+    }
+
+    .fruit {
+        width: 56px;
+        height: 56px;
+    }
+
+    #score {
+        top: 8px;
+        right: 8px;
+        padding: 6px 8px;
+    }
+
+    #trialsLeft {
+        top: 8px;
+        left: 8px;
+        padding: 12px 6px;
+    }
 
     /* stack top badges to avoid overlap */
-    #score, #trialsLeft { position: relative; top: 0; right: 0; left: 0; margin: 6px auto; }
-    #correct, #wrong { top: auto; position: relative; transform: none; margin: 6px auto; }
+    #score,
+    #trialsLeft {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: 6px auto;
+    }
+
+    #correct,
+    #wrong {
+        top: auto;
+        position: relative;
+        transform: none;
+        margin: 6px auto;
+    }
 
     /* gameOver takes more vertical space on tiny screens */
-    #gameOver{ top: 55%; font-size: 1.1em; padding: 14px; }
+    #gameOver {
+        top: 55%;
+        font-size: 1.1em;
+        padding: 14px;
+    }
 }
 
 @media (min-width: 421px) and (max-width: 760px) {
+
     /* larger phones (landscape) and small tablets */
-    #gameOver{ width: 80%; font-size: 1.1em; padding: 12px; margin-top: 40px;}
-    .fruit{ width: 60px; height: 60px; }
-    #instruction{ height: 44px; line-height: 44px; }
+    #gameOver {
+        width: 80%;
+        font-size: 1.1em;
+        padding: 12px;
+        margin-top: 40px;
+    }
+
+    .fruit {
+        width: 60px;
+        height: 60px;
+    }
+
+    #instruction {
+        height: 44px;
+        line-height: 44px;
+    }
 }
 
 @media (min-width: 761px) and (max-width: 1024px) {
+
     /* tablets */
-    #container{ width: min(720px, 96%); }
-    .fruit{ width: 64px; height: 64px; }
+    #container {
+        width: min(720px, 96%);
+    }
+
+    .fruit {
+        width: 64px;
+        height: 64px;
+    }
 }
