@@ -1,0 +1,100 @@
+body{
+    background: url(images/hill-5324149_1920.jpg) no-repeat center center fixed;
+    background-size:auto;
+    color: #FFFFFF;
+}
+
+#header{
+    font-family: 'Arvo';
+    font-size: 7vw;
+    text-align: center;
+}
+
+#lap{
+    text-align: right;
+    font-size: 4vw;
+    font-family: 'Arvo';
+}
+
+.control{
+    background: rgba(0, 0, 0, 0.5);
+    padding-bottom: 2em;
+}
+
+.lapsTime{
+  display: none;
+  margin-top: 5rem;
+  font-size: 18px;
+}
+
+.laptitle
+{
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.lap{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+/* Target only buttons inside .controlbtn */
+.controlbtn .btn {
+  font-size: 2.5vw;       /* increase font */
+  font-weight: bold;     /* bold text */
+  border-radius: 12px;   /* rounded corners */
+  padding: 10px 25px; 
+  cursor: pointer;       /* pointer cursor */
+  transition: 0.3s ease; /* smooth hover effect */
+}
+
+/* Custom colors per button */
+.controlbtn .btn-success {
+  background-color: #1E3A8A;  /* deep blue */
+  border: none;
+}
+.controlbtn .btn-success:hover {
+  background-color: #3B82F6;  /* sky blue hover */
+}
+
+.controlbtn .btn-success:active {
+  background-color: #fff;
+  color: #3B82F6;  /* sky blue hover */
+}
+
+.controlbtn .btn-danger {
+  background-color: #EF4444;  /* soft red */
+  border: none;
+}
+
+.controlbtn .btn-danger:hover {
+  background-color: #DC2626;  /* darker red */
+}
+
+.controlbtn .btn-danger:active {
+  background-color: #fff;
+  color: #DC2626;  /* darker red */
+}
+.controlbtn .btn-warning {
+  background-color: #FBBF24;  /* gold */
+  color: #000;                /* black text */
+  border: none;
+}
+.controlbtn .btn-warning:hover {
+  background-color: #D97706;  /* darker gold */
+  color: #fff;
+}
+
+.controlbtn .btn-warning:active {
+  background-color: #fff;  /* darker gold */
+  color: #D97706;
+}
+
+#time{
+    text-align: center;
+    font-size: 10vw;
+    font-family: 'Arvo';
+}
