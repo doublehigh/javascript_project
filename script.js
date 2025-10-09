@@ -183,7 +183,8 @@ function project() {
     {name: "Coffee Page", endpoint: "CoffeePage/index.html"},
     {name: "Math Quize", endpoint: "MathGame/index.html"},
     {name: "Fruit Slice Game", endpoint: "SliceGame/index.html"},
-    {name: "Stopwatch App", endpoint: "stopWatchApp/index.html"}
+    {name: "Stopwatch App", endpoint: "stopWatchApp/index.html"},
+    {name: "Drawing App", endpoint: "DrawingApp/index.html"},
   ];
 
   files.forEach(file => {
