@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexgen Profit Calculator</title>
+    <style>
+        body{
+            /* padding: 2em; */
+            /* margin: auto; */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            /* font-family: ; */
+        }
+        .container{
+            display: block;
+        }
+        input{
+            font-size: 2em;
+            padding: .1em .2em;
+            border-radius: .3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="number" id="costPrice" placeholder="Enter the Cost Price" oninput="costprice()">
+        <p>Profit: <span id="profit"></span></p>
+        <p>Selling Price: <span id="sellingPrice"></span></p>
+    </div>
+
+
+
+    <script>
+        function costprice(){
+            let costPrice = document.getElementById("costPrice").value;
+            let profit = document.getElementById("profit");
+            let sellingPrice = document.getElementById("sellingPrice");
+    if(costPrice > 50){        
+        if(costPrice <= 200)
+        {
+            profit.textContent = formatCurrency(Math.ceil(costPrice * 0.2)*1000);
+            sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+        else if(costPrice <= 350)
+        {
+           profit.textContent = formatCurrency(Math.ceil(costPrice * 0.18)*1000);
+           sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+        else if(costPrice <= 400)
+        {
+            profit.textContent = formatCurrency(Math.ceil(costPrice * 0.16)*1000);
+            sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+        else if(costPrice <= 450)
+        {
+            profit.textContent = formatCurrency(Math.ceil(costPrice * 0.14)*1000);
+            sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+        else if(costPrice <= 500)
+        {
+            profit.textContent = formatCurrency(Math.ceil(costPrice * 0.12)*1000);
+            sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+        else
+        {
+            profit.textContent = formatCurrency(Math.ceil(costPrice * 0.10)*1000);
+            sellingPrice.textContent = formatCurrency((Number(costPrice) + Number(convertCurrencyToNumber(profit.textContent)))*1000);
+        }
+    }
+    else
+    {
+        profit.textContent = "Enter Valid cost Price";
+        sellingPrice.textContent = "Enter Valid cost Price";
+    }
+}
+
+function formatCurrency(number) {
+    return new Intl.NumberFormat("en-NG", {
+        style: "currency",
+        currency: "NGN",
+    }).format(number);
+}
+
+function convertCurrencyToNumber(value) {
+  // Remove ₦ symbol, commas, and everything except digits and dot
+  let cleaned = value.replace(/[₦,]/g, "");
+  
+  // Convert to number
+  let number = parseFloat(cleaned);
+
+  // Convert to whole number (remove decimal part)
+  return Math.round(number / 1000);
+}
+
+// Example usage:
+// console.log(convertCurrencyToNumber("₦100,000.00")); // Output: 100
+
+    </script>
+</body>
+</html>
